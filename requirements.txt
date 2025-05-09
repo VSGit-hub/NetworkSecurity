@@ -6,5 +6,5 @@ certifi
 scikit-learn
 dill
 pyal
-
+pyyaml
 # -e .
