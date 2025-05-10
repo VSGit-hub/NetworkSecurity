@@ -13,6 +13,9 @@ TEST_FILE_NAME = "test.csv"
 
 SCHEMA_FILE_PATH = os.path.join("data_schema", "schema.yaml")
 
+SAVED_MODEL_DRI: str = os.path.join("saved_model")
+MODEL_FILE_NAME: str = "model.pkl"
+
 # Constants relate to data ingestion
 DATA_INGSTION_COLLECTION_NAME : str = "NetworkData"
 DATA_INGSTION_DATABASE_NAME : str = "DBASE"
@@ -41,3 +44,12 @@ DATA_TRANSFORMATION_IMPUTER_PARAMS: dict = {
     "n_neighbors": 3,
     "weights": "uniform",
 }
+
+# Constants for model Trainer
+MODEL_TRAINER_DIR: str = "model_trainer"
+MODEL_TRAINER_TRAINED_MODLE_DIR: str = "trained_model"
+MODEL_TRAINER_TRAINED_MODEL_FILE_NAME: str = "model.pkl"
+MODEL_TRAINER_EXPECTED_SCORE: float = 0.6
+MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THERSHOLD: float = 0.05
+
+
