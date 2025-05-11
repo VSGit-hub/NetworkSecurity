@@ -8,4 +8,5 @@ dill
 pyal
 pyyaml
 mlflow
+dagshub
 # -e .

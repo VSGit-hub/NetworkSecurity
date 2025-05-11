@@ -14,7 +14,13 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier, RandomForestClassifier
 from sklearn.metrics import r2_score
 
+from dotenv import load_dotenv
+load_dotenv()
+
 import mlflow
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("DAGSHUB_USERNAME")
+os.environ["MLFLOW_TRACKING_PASSWORD"] =  os.getenv("DAGSHUB_ACCESS_TOKEN")
 
 class ModelTrainer:
     def __init__(self, model_trainer_config: ModelTrainingConfig, data_transformation_artifact: DataTransformationArtifact):
@@ -26,6 +32,7 @@ class ModelTrainer:
 
     
     def track_mlfow(self, best_model, classification_mertics):
+        mlflow.set_tracking_uri("https://dagshub.com/vbs.codestuff/NetworkSecurity.mlflow")
         with mlflow.start_run():
             f1_score = classification_mertics.f1_score
             precision_score = classification_mertics.precision_score
@@ -40,7 +47,7 @@ class ModelTrainer:
     def train_model(self, X_train, y_train, X_test, y_test):
         models = {
             "Random Forest": RandomForestClassifier(verbose=1),
-            # "Decision Tree": DecisionTreeClassifier(),
+            "Decision Tree": DecisionTreeClassifier(),
             # "Gradient Boosting": GradientBoostingClassifier(verbose=1),
             # "Logistic Regression": LogisticRegression(verbose=1),
             # "AdaBoost": AdaBoostClassifier()
