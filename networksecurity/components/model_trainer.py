@@ -94,7 +94,6 @@ class ModelTrainer:
         ## Track the mlflow
         self.track_mlfow(best_model, classificatin_train_mertic)
 
-
         y_test_pred = best_model.predict(X_test)
         classificatin_test_mertic = get_classification_score(y_true=y_test, y_pred=y_test_pred)
         self.track_mlfow(best_model, classificatin_test_mertic)
@@ -106,6 +105,8 @@ class ModelTrainer:
 
         Network_Model = NetworkModel(processor=processor, model=best_model)
         save_object(self.model_trainer_config.trained_model_file, obj=Network_Model)
+
+        save_object("final_model/model.pkl", best_model)
 
         ## Model Trainer Artifact
         model_trainer_artifact = ModelTrainerArtifact(

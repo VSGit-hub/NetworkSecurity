@@ -16,7 +16,6 @@ if __name__=='__main__':
         data_ingestion_config = DataIngestionConfig(traningpipelieconfig)
         data_ingestion = DataIngestion(data_ingestion_config)
         logging.info('initiate data ingestion')
-       
         data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
         logging.info("Data ingetion completed")
         print(data_ingestion_artifact)
@@ -24,7 +23,6 @@ if __name__=='__main__':
         data_validation_config = DataValidationConfig(traningpipelieconfig)
         data_validation = DataValidation(data_ingestion_artifact, data_validation_config)
         logging.info("Initiated data validation")
-       
         data_validation_artifact = data_validation.initiate_data_validation()
         logging.info("Data validation completed")
         print(data_validation_config)

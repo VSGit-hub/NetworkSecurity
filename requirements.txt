@@ -9,4 +9,10 @@ pyal
 pyyaml
 mlflow
 dagshub
+faskapi
+uvicorn
+python-multipart
+
+
+
 # -e .
